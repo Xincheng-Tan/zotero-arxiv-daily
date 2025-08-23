@@ -183,7 +183,7 @@ class ArxivPaper:
         prompt = prompt.replace('__INTRODUCTION__', introduction)
         prompt = prompt.replace('__CONCLUSION__', conclusion)
 
-        logger.debug("Prompt: {prompt}")
+        print("Prompt: {prompt}")
         # use gpt-4o tokenizer for estimation
         enc = tiktoken.encoding_for_model("gpt-4o")
         prompt_tokens = enc.encode(prompt)
