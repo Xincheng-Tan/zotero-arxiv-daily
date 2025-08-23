@@ -170,7 +170,7 @@ class ArxivPaper:
             if match:
                 conclusion = match.group(0)
         llm = get_llm()
-        prompt = """Given the title, abstract, introduction and the conclusion (if any) of a paper in latex format, generate a one-sentence TLDR summary in __LANG__:
+        prompt = """Given the title, abstract, introduction and the conclusion (if any) of a paper in latex format, generate a brief TLDR summary and Summarize its innovative points in __LANG__:
         
         \\title{__TITLE__}
         \\begin{abstract}__ABSTRACT__\\end{abstract}
@@ -183,7 +183,7 @@ class ArxivPaper:
         prompt = prompt.replace('__INTRODUCTION__', introduction)
         prompt = prompt.replace('__CONCLUSION__', conclusion)
 
-        print("Prompt: {prompt}")
+        # logger.debug("Prompt: {prompt}")
         # use gpt-4o tokenizer for estimation
         enc = tiktoken.encoding_for_model("gpt-4o")
         prompt_tokens = enc.encode(prompt)
