@@ -170,7 +170,7 @@ class ArxivPaper:
             if match:
                 conclusion = match.group(0)
         llm = get_llm()
-        prompt = """Given the title, abstract, introduction and the conclusion (if any) of a paper in latex format, generate a brief TLDR summary and Summarize its innovative points in __LANG__:
+        prompt = """Given the title, abstract, introduction and the conclusion (if any) of a paper in latex format, generate a brief TLDR summary in __LANG__ and Summarize its innovative points in __LANG__:
         
         \\title{__TITLE__}
         \\begin{abstract}__ABSTRACT__\\end{abstract}
